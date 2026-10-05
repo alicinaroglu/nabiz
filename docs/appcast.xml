@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Nabız</title>
+    <link>https://alicinaroglu.github.io/nabiz/appcast.xml</link>
+    <description>Nabız updates</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.0</title>
+      <pubDate>Fri, 02 Oct 2026 19:01:55 GMT</pubDate>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/alicinaroglu/nabiz/releases/tag/v1.0</sparkle:releaseNotesLink>
+      <enclosure url="https://github.com/alicinaroglu/nabiz/releases/download/v1.0/Nabiz-1.0.zip" sparkle:edSignature="lBDVLrxIKfyWYSus2RdqbDgcL6i8lHu9l8nwdVGM/ck9urWw2DhxCervfmvXp2Wyj0fas0WMescybrqm7BAnDg==" length="2107445" type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>

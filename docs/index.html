@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nabız: know why your Mac is busy</title>
+<meta name="description" content="A free macOS menu bar monitor for CPU, memory, disk and temperature, built for developers. It names what is using your Mac: the simulator you forgot, the Gradle daemon, the build.">
+<meta property="og:title" content="Nabız">
+<meta property="og:description" content="Know why your Mac is busy. A free menu bar monitor for developers.">
+<meta property="og:image" content="https://alicinaroglu.github.io/nabiz/screenshots/panel-dark.png">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --bg: #f6f7f8;
+    --surface: #ffffff;
+    --text: #15181b;
+    --muted: #5d656d;
+    --line: #e2e5e8;
+    --accent: #0f7a63;
+    --accent-text: #ffffff;
+    --pulse: #19b88f;
+    --code-bg: #eef1f3;
+    --shadow: 0 1px 2px rgba(0,0,0,.05), 0 12px 32px rgba(0,0,0,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1113;
+      --surface: #151a1d;
+      --text: #e8ecee;
+      --muted: #97a1a8;
+      --line: #252c31;
+      --accent: #3ddbb0;
+      --accent-text: #06231c;
+      --pulse: #3ddbb0;
+      --code-bg: #1b2125;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.45);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  header { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 650; font-size: 19px; color: var(--text); }
+  .brand img { width: 34px; height: 34px; }
+  header nav a { color: var(--muted); font-size: 15px; }
+
+  .hero { text-align: center; padding: 48px 0 32px; }
+  .hero img.icon { width: 112px; height: 112px; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; letter-spacing: -0.02em; margin: 18px 0 14px; }
+  .lede { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 640px; margin: 0 auto; }
+  .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 28px 0 12px; }
+  .button {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border-radius: 12px; font-weight: 600; font-size: 16px;
+    border: 1px solid var(--line); color: var(--text); background: var(--surface);
+  }
+  .button.primary { background: var(--accent); color: var(--accent-text); border-color: transparent; }
+  .button:hover { text-decoration: none; filter: brightness(1.05); }
+  .fine { font-size: 14px; color: var(--muted); }
+
+  .menubar {
+    margin: 36px auto 0; width: fit-content; max-width: 100%;
+    padding: 6px 10px; border-radius: 10px; background: var(--surface);
+    border: 1px solid var(--line); box-shadow: var(--shadow);
+  }
+  .menubar img { display: block; height: 36px; width: auto; max-width: 100%; }
+
+  .showcase {
+    display: grid; grid-template-columns: 360px 1fr; gap: 48px; align-items: start;
+    padding: 64px 0 24px;
+  }
+  .panel img { width: 100%; max-width: 360px; border-radius: 14px; box-shadow: var(--shadow); border: 1px solid var(--line); display: block; margin: 0 auto; }
+  h2 { font-size: clamp(26px, 3.4vw, 34px); letter-spacing: -0.01em; margin: 0 0 8px; line-height: 1.2; }
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 28px; margin-top: 26px; }
+  .feature h3 { font-size: 17px; margin: 0 0 4px; display: flex; align-items: center; gap: 8px; }
+  .feature h3::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pulse); flex: none; }
+  .feature p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  code { font: 14px/1.4 ui-monospace, "SF Mono", Menlo, monospace; background: var(--code-bg); padding: 1px 6px; border-radius: 5px; }
+
+  .install { padding: 56px 0; }
+  .install-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 22px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+  .cmd { display: flex; align-items: center; gap: 8px; background: var(--code-bg); border-radius: 8px; padding: 8px 10px; }
+  .cmd code { background: none; padding: 0; overflow-x: auto; white-space: nowrap; flex: 1; }
+  .copy { border: 0; background: none; color: var(--accent); font: 600 13px -apple-system, sans-serif; cursor: pointer; padding: 2px 4px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14.5px; }
+  footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 860px) {
+    .showcase { grid-template-columns: 1fr; gap: 32px; padding-top: 48px; }
+    .features { grid-template-columns: 1fr; }
+    .install-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./"><img src="icon.png" alt="">Nabız</a>
+    <nav><a href="https://github.com/alicinaroglu/nabiz">GitHub</a></nav>
+  </header>
+
+  <section class="hero">
+    <img class="icon" src="icon.png" alt="Nabız app icon">
+    <h1>Know why your Mac is busy.</h1>
+    <p class="lede">A free menu bar monitor for CPU, memory, disk and temperature, built for developers. It names what is using your Mac: the simulator you forgot, the Gradle daemon, the build.</p>
+    <div class="actions">
+      <a class="button primary" href="https://github.com/alicinaroglu/nabiz/releases/latest/download/Nabiz.dmg">Download for macOS</a>
+      <a class="button" href="#install">Homebrew</a>
+    </div>
+    <p class="fine">Free · macOS 14 or later · Apple Silicon and Intel</p>
+    <div class="menubar">
+      <picture>
+        <source srcset="screenshots/menubar-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="screenshots/menubar-light.png" alt="Nabız in the menu bar: CPU 43%, RAM 72%, SSD 168G free, temperature 58°">
+      </picture>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="panel">
+      <picture>
+        <source srcset="screenshots/panel-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="screenshots/panel-light.png" alt="The Nabız panel: processor, memory, disks, temperatures, open simulators and the busiest processes grouped by owner">
+      </picture>
+    </div>
+    <div>
+      <h2>Not just how busy. Who.</h2>
+      <p class="lede" style="margin:0">Activity Monitor lists hundreds of processes with names like <code>amsengagementd</code>. Nabız groups them by what you actually started.</p>
+      <div class="features">
+        <div class="feature">
+          <h3>Simulators by name</h3>
+          <p>The 200+ processes inside an iOS simulator count under the device you know, along with the disk image reads that feed it.</p>
+        </div>
+        <div class="feature">
+          <h3>Idle simulator alerts</h3>
+          <p>Left one booted after a test run? After 30 quiet minutes you get a notification with a Shut Down button.</p>
+        </div>
+        <div class="feature">
+          <h3>Apps, not helpers</h3>
+          <p>Code Helper, WebKit and virtual machine processes are counted under the app that started them.</p>
+        </div>
+        <div class="feature">
+          <h3>Developer tools, named</h3>
+          <p>Xcode builds, Gradle and Kotlin daemons, Maestro, and Android emulators with their AVD names.</p>
+        </div>
+        <div class="feature">
+          <h3>System services in plain words</h3>
+          <p><code>mds_stores</code>, <code>WindowServer</code>, <code>kernel_task</code> and friends get a one-line explanation.</p>
+        </div>
+        <div class="feature">
+          <h3>Temperature without root</h3>
+          <p>Chip and SSD sensors, read directly. No helper tool, no admin password.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="install" id="install">
+    <h2>Install</h2>
+    <div class="install-grid">
+      <div class="card">
+        <h3>Download</h3>
+        <p>Signed and notarized by Apple. Open the disk image and drag Nabız to Applications.</p>
+        <a class="button primary" href="https://github.com/alicinaroglu/nabiz/releases/latest/download/Nabiz.dmg">Download Nabız</a>
+      </div>
+      <div class="card">
+        <h3>Homebrew</h3>
+        <p>Updates itself after that, or with <code>brew upgrade</code>.</p>
+        <div class="cmd"><code id="brew">brew install --cask alicinaroglu/tap/nabiz</code><button class="copy" data-target="brew">Copy</button></div>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:18px"><a href="https://github.com/alicinaroglu/nabiz/releases">Release notes</a> · No analytics. The only network request is the update check, which you can turn off in Settings.</p>
+  </section>
+
+  <footer>
+    <div class="row">
+      <span>Made by <a href="https://x.com/alicinaroglu">Ali Çınaroğlu</a>. Also made <a href="https://bytecleaner.app">ByteCleaner</a>, a disk cleaner for developers.</span>
+      <span><a href="https://github.com/alicinaroglu/nabiz/issues">Feedback</a> · <a href="https://github.com/alicinaroglu/nabiz/blob/main/LICENSE">License</a></span>
+    </div>
+  </footer>
+</div>
+<script>
+  document.querySelectorAll(".copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var text = document.getElementById(button.dataset.target).textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        button.textContent = "Copied";
+        setTimeout(function () { button.textContent = "Copy"; }, 1500);
+      });
+    });
+  });
+</script>
+</body>
+</html>
