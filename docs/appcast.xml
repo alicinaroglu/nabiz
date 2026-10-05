@@ -7,15 +7,16 @@
     <language>en</language>
     <item>
       <title>Version 1.1.1</title>
-      <pubDate>Mon, 05 Oct 2026 16:34:53 GMT</pubDate>
+      <pubDate>Mon, 05 Oct 2026 16:41:38 GMT</pubDate>
       <sparkle:version>8</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <description sparkle:format="markdown"><![CDATA[
-- Moving Nabız to Applications now finishes the new copy before replacing the old one, so a failed move can never leave Applications without Nabız.
-- The app on the disk image no longer carries a leftover Finder flag.
+- Nabız now comes as a disk image: open it and drag Nabız to Applications.
+- Opened straight from the disk image or the Downloads folder, Nabız offers to move itself to Applications, so it keeps opening at login.
+- Moving to Applications is safer: the old copy is replaced only once the new one is complete.
 
-Signed with Developer ID and notarized by Apple. Updates arrive through Sparkle.
+Signed with Developer ID and notarized by Apple.
 ]]></description>
       <sparkle:fullReleaseNotesLink>https://github.com/alicinaroglu/nabiz/releases</sparkle:fullReleaseNotesLink>
       <enclosure url="https://github.com/alicinaroglu/nabiz/releases/download/v1.1.1/Nabiz.dmg" sparkle:edSignature="wQlAft5ohNlNCa1vBID3YmODqPwx+CKXhQks1270UCtKU7KBirlaRJ2wsGnrE8110/ogFvRGmj+g0b4g/L4wDw==" length="2392855" type="application/octet-stream"/>
