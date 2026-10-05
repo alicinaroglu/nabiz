@@ -6,6 +6,22 @@
     <description>Nabız updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.1.2</title>
+      <pubDate>Mon, 05 Oct 2026 16:50:37 GMT</pubDate>
+      <sparkle:version>14</sparkle:version>
+      <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description sparkle:format="markdown"><![CDATA[
+- Numbers follow your region: in Turkish, percentages read %43 and sizes 1,9 GB.
+- In Turkish, the Activity Monitor button now uses the name macOS gives it: Etkinlik Monitörü.
+- Since 1.1: Nabız comes as a disk image, and opened from there or from Downloads it offers to move itself to Applications, so it keeps opening at login.
+
+Signed with Developer ID and notarized by Apple.
+]]></description>
+      <sparkle:fullReleaseNotesLink>https://github.com/alicinaroglu/nabiz/releases</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/alicinaroglu/nabiz/releases/download/v1.1.2/Nabiz.dmg" sparkle:edSignature="q+nzUkrTa+43/2WIgcUt4s9+9bJwya8Z+FgnDl3tDFjYhwMDYMGLXiWZFfnl2KZtyaDIdRhbFDAAw6K7OGceAA==" length="2393285" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.1.1</title>
       <pubDate>Mon, 05 Oct 2026 16:41:38 GMT</pubDate>
       <sparkle:version>8</sparkle:version>
