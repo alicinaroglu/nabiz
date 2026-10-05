@@ -7,20 +7,33 @@
     <language>en</language>
     <item>
       <title>Version 1.1.1</title>
-      <pubDate>Mon, 05 Oct 2026 16:29:13 GMT</pubDate>
+      <pubDate>Mon, 05 Oct 2026 16:34:53 GMT</pubDate>
       <sparkle:version>8</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <sparkle:releaseNotesLink>https://github.com/alicinaroglu/nabiz/releases/tag/v1.1.1</sparkle:releaseNotesLink>
+      <description sparkle:format="markdown"><![CDATA[
+- Moving Nabız to Applications now finishes the new copy before replacing the old one, so a failed move can never leave Applications without Nabız.
+- The app on the disk image no longer carries a leftover Finder flag.
+
+Signed with Developer ID and notarized by Apple. Updates arrive through Sparkle.
+]]></description>
+      <sparkle:fullReleaseNotesLink>https://github.com/alicinaroglu/nabiz/releases</sparkle:fullReleaseNotesLink>
       <enclosure url="https://github.com/alicinaroglu/nabiz/releases/download/v1.1.1/Nabiz.dmg" sparkle:edSignature="wQlAft5ohNlNCa1vBID3YmODqPwx+CKXhQks1270UCtKU7KBirlaRJ2wsGnrE8110/ogFvRGmj+g0b4g/L4wDw==" length="2392855" type="application/octet-stream"/>
     </item>
     <item>
       <title>Version 1.1</title>
-      <pubDate>Mon, 05 Oct 2026 16:22:17 GMT</pubDate>
+      <pubDate>Mon, 05 Oct 2026 16:34:53 GMT</pubDate>
       <sparkle:version>6</sparkle:version>
       <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <sparkle:releaseNotesLink>https://github.com/alicinaroglu/nabiz/releases/tag/v1.1</sparkle:releaseNotesLink>
+      <description sparkle:format="markdown"><![CDATA[
+- Nabız now comes as a disk image: open it and drag Nabız to Applications.
+- Opened straight from the disk image or the Downloads folder, Nabız offers to move itself to Applications, so it keeps opening at login.
+- Opening at login is now set up from the copy in Applications, not from wherever Nabız first ran.
+
+Signed with Developer ID and notarized by Apple. Updates arrive through Sparkle.
+]]></description>
+      <sparkle:fullReleaseNotesLink>https://github.com/alicinaroglu/nabiz/releases</sparkle:fullReleaseNotesLink>
       <enclosure url="https://github.com/alicinaroglu/nabiz/releases/download/v1.1/Nabiz.dmg" sparkle:edSignature="hVJcemjiCX9Xh4ZAli9j7YDHIwKleJvgZGEuL23lScR5lEAA0PECC0o2wkgjuBu/oZHpbnbXxLny3Uxi8DSxBg==" length="2393657" type="application/octet-stream"/>
     </item>
     <item>
