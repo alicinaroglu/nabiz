@@ -6,6 +6,15 @@
     <description>Nabız updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.1</title>
+      <pubDate>Mon, 05 Oct 2026 16:22:17 GMT</pubDate>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/alicinaroglu/nabiz/releases/tag/v1.1</sparkle:releaseNotesLink>
+      <enclosure url="https://github.com/alicinaroglu/nabiz/releases/download/v1.1/Nabiz.dmg" sparkle:edSignature="hVJcemjiCX9Xh4ZAli9j7YDHIwKleJvgZGEuL23lScR5lEAA0PECC0o2wkgjuBu/oZHpbnbXxLny3Uxi8DSxBg==" length="2393657" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.0</title>
       <pubDate>Fri, 02 Oct 2026 19:01:55 GMT</pubDate>
       <sparkle:version>2</sparkle:version>
