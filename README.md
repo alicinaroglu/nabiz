@@ -42,6 +42,7 @@ Requires macOS 14 or later. Temperatures need Apple Silicon; everything else als
   - app helpers are grouped under their app: "Code Helper (Plugin)" counts as Visual Studio Code, a virtual machine as the app that started it
   - Xcode builds, Gradle and Kotlin daemons, Maestro and Android emulators (with their AVD names) are named as such
   - common system services get a one-line explanation (`mds_stores`, `WindowServer`, `kernel_task` and others)
+  - click a line to see what it is made of: a browser's tabs, GPU and extensions (and whether one tab is doing the work), an Electron app's windows and Node.js processes, each compiler in an Xcode build, Node.js processes by the script they run
 
 Settings choose the menu bar columns, free space or percent used for the disk, °C or °F, and the refresh interval. English and Turkish.
 

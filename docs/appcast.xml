@@ -6,6 +6,21 @@
     <description>Nabız updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.2</title>
+      <pubDate>Mon, 12 Oct 2026 21:07:12 GMT</pubDate>
+      <sparkle:version>17</sparkle:version>
+      <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description sparkle:format="markdown"><![CDATA[
+- Click a line under Top CPU users to see what it is made of. A browser splits into tabs and sites, GPU and extensions, and says when one tab is doing the work; Electron apps such as VS Code into windows and Node.js processes; an Xcode build into each compiler. Node.js processes are named by the script they run.
+- Open and save panels and other services macOS charges to an app now show up as macOS services.
+
+Signed with Developer ID and notarized by Apple.
+]]></description>
+      <sparkle:fullReleaseNotesLink>https://github.com/alicinaroglu/nabiz/releases</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/alicinaroglu/nabiz/releases/download/v1.2/Nabiz.dmg" sparkle:edSignature="tTlR8OoS5DWKg4lBb5TeacTdgnJYCrDq2yKL27Oeu8JwHbCXuCxlaryobwGitHwL5fjk/KaHfKyV2b22i6IRCQ==" length="2438109" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.1.2</title>
       <pubDate>Mon, 05 Oct 2026 16:50:37 GMT</pubDate>
       <sparkle:version>14</sparkle:version>
